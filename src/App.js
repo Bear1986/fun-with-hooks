@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [count, setCount] = useState(0);
+  function plus() {
+    setCount((prevCount) => prevCount + 1);
+  }
+  function minis() {
+    setCount((prevCount) => prevCount - 1);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <h1 className="text-3xl font-bold flex justify-center col text-red-500">
+        Hello world!
+      </h1>
+      <br />
+      <div className="flex justify-center">
+        <button
+          onClick={plus}
+          className="bg-green-500 hover:bg-green-700 text-black font-bold py-2 px-4 rounded"
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          +
+        </button>
+        <span className=" text-3xl p-2">{count}</span>
+        <button
+          onClick={minis}
+          className="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded"
+        >
+          -
+        </button>
+      </div>
+    </>
   );
 }
 
